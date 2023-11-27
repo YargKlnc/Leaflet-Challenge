@@ -1,7 +1,8 @@
 # Leaflet-Challenge
 Leaflet Challenge by YK
 
-![image](https://github.com/YargKlnc/Leaflet-Challenge/assets/142269763/088c7cd8-5eb0-458d-a5f5-8e6b7d8d25d5)
+![image](https://github.com/YargKlnc/Leaflet-Challenge/assets/142269763/1f51cd23-ab0e-4c95-8dd9-7af4910c6672)
+
 
 
 **Background**
@@ -16,6 +17,7 @@ The instructions for this activity are broken into two parts:
   
   •	Part 2: Gather and Plot More Data (Optional with no extra points earning)
 
+
 Following tasks performed in this project:
 
 •	Plot the tectonic plates dataset on the map in addition to the earthquakes.
@@ -26,9 +28,12 @@ Following tasks performed in this project:
 
 •	Add layer controls to your map.
 
+
 Requirements These requirements apply only to "Part 1: Create the Earthquake Visualization" as "Part 2" is optional with no extra points earning.
 
+
 Map
+
 •	TileLayer loads without error 
 
 •	Connects to geojson API using D3 without error 
@@ -37,7 +42,9 @@ Map
 
 •	A legend showing the depth and their corresponding color 
 
+
 Data Points 
+
 •	Data points scale with magnitude level 
 
 •	Data points colors change with depth level 
@@ -47,4 +54,4 @@ Data Points
 •	All data points load in the correct locations 
 
 **References**
-World map rights belongs to https://spatial.blog.torontomu.ca/tag/leaflet/
+World map rights belongs to https://github.com/Leaflet/Leaflet
