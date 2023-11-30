@@ -54,4 +54,4 @@ Data Points
 •	All data points load in the correct locations 
 
 **References**
-World map rights belongs to https://github.com/Leaflet/Leaflet
+Leaflet photo rights belongs to https://github.com/Leaflet/Leaflet
