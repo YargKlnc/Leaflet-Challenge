@@ -1,12 +1,15 @@
 // storing API endpoint inside queryUrl from the USGS website, taking all month data
-var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // performing a GET request to the query URL
-d3.json(queryUrl, function(data) {
+d3.json(queryUrl).then(function(data) {
     // sending the data.features object to the createFeatures function
         createFeatures(data.features);
+    console.log(data.features)
     }
+    
 );
+
 
 // function to create features
 function createFeatures(earthquakeData) {
@@ -64,12 +67,11 @@ function getColor(mag){
 let legend = L.control({position: 'topright'});
 
 legend.onAdd = function() {
-    var div = L.DomUtil.create('div', 'info legend'),
-    var grades = [0, 1, 2, 3, 4, 5],
-    var mag = ["0-1", "1-2", "2-3", "3-4", "4-5", "5+"];
-    var labels = [];
-    var legendInfo = "<h3>Magnitude</h3>";
-
+    let div = L.DomUtil.create("div", "info legend");
+    let mag = [0, 1, 2, 3, 4, 5];
+    let grades = ["0-1", "1-2", "2-3", "3-4", "4-5", "5+"];
+    let legendInfo = "<h4>Earthquake<br>Magnitude</h4>";
+    
     div.innerHTML = legendInfo;
 
     // loop through each magnitude and generate a label and color the legend
@@ -85,12 +87,12 @@ legend.onAdd = function() {
 function createMap(earthquakes) {
 
     // defining streetmap and darkmap layers
-    let streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}", { 
-        accessToken: API_KEY
+    let streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
 
-    let darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}", { 
-        accessToken: API_KEY
+    let darkmap = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
     });
 
     // defining a baseMaps object to hold base layers
@@ -123,3 +125,5 @@ function createMap(earthquakes) {
     // adding legend to map
     legend.addTo(myMap);
 }
+
+console.log("logic.js loaded")
