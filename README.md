@@ -26,7 +26,7 @@ Following tasks performed in this project:
 
 •	Putting each dataset into separate overlays that can be turned on and off independently.
 
-•	Adding layer controls to your map.
+•	Adding layer controls to the map.
 
 
 Requirements applying to "Part 1: Creating the Earthquake Visualization".
