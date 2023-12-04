@@ -34,6 +34,7 @@ Requirements applying to "Part 1: Creating the Earthquake Visualization".
 
 **Completed Tasks**
 
+
 Map
 
 •	TileLayer loads without error 
@@ -55,5 +56,7 @@ Data Points
 
 •	All data points load in the correct locations 
 
+
 **References**
+
 Leaflet photo rights belongs to https://github.com/Leaflet/Leaflet
