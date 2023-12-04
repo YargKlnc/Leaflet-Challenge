@@ -67,4 +67,4 @@ Data Points
 
 **References**
 
-Leaflet photo rights belongs to https://github.com/Leaflet/Leaflet
+USGS logo photo rights belongs to https://www.usgs.gov/
