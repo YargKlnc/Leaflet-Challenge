@@ -59,7 +59,7 @@ GEO Json Data taken from https://earthquake.usgs.gov/earthquakes/feed/v1.0/summa
 Day Map tile layer rights: https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
 
-Dar Map tile layer rights: https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+Dark Map tile layer rights: https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
 
 
