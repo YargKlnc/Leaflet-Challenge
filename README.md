@@ -11,7 +11,7 @@ The United States Geological Survey, or USGS for short, is responsible for provi
 
 **Important Notes**
 
-If you are using a windows machine open html file in integrated terminal and type; python -m http.server --bind 127.0.0.1 8000 and click on the link to open the map
+If you are using a windows machine open html file in integrated terminal and type; python -m http.server --bind 127.0.0.1 8000 to the terminal and CTRL+click on the link to open the map
 
 **Instructions**
 
