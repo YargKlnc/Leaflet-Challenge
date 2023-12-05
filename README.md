@@ -53,4 +53,7 @@ Data Points
 **References**
 
 USGS logo photo rights belongs to https://www.usgs.gov/
-Data taken from https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+
+GEO Json Data taken from https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+
+
