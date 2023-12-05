@@ -10,15 +10,18 @@ d3.json(queryUrl).then(function(data) {
     
 );
 
-
 // function to create features
 function createFeatures(earthquakeData) {
     
         // function to run once for each feature in the features array
-        // giving each feature a popup with the place and time of the earthquake
+        // giving each feature a popup with the place, time, coordinates, geometry and tsunami risk of the earthquake
         function onEachFeature(feature, layer) {
             layer.bindPopup(`<h3>Location of Earthquake: ${feature.properties.place}
-            </h3><hr><p>Date and Time: ${new Date(feature.properties.time)}</p><hr><p>Magnitude: ${feature.properties.mag}</p>`);
+            </h3><hr><p>Date and Time: ${new Date(feature.properties.time)}</p><hr><p>Magnitude: ${feature.properties.mag}</p>
+            <hr><p>Tsunami Risk: ${feature.properties.tsunami}</p>
+            <hr><p>Depth to Surface: ${feature.geometry.coordinates[2]}</p>
+            <hr><p>X and Y Coordinates: ${feature.geometry.coordinates[1]}, 
+            ${feature.geometry.coordinates[0]}</p>`);
         }
         
         // creating a GeoJSON layer containing the features array on the earthquakeData object
@@ -44,42 +47,48 @@ function createFeatures(earthquakeData) {
         createMap(earthquakes);
 }
 
-// creating function for circle colors where data markers reflecting the magnitude of the earthquake by their size and the depth of the earthquake by color
-function getColor(mag){
-    switch(true){
-        case mag > 5:
+// creating function for circle colors 
+// data markers reflecting the magnitude of the earthquake by their size and the depth of the earthquake by color
+// earthquakes with higher magnitudes will appear larger and earthquakes with greater depth will appear darker in color
+function getColor(mag) {
+    switch (true) {
+        case mag > 8:
             return "#ea2c2c";
-        case mag > 4:
+        case mag > 7:
             return "#ea822c";
-        case mag > 3:
+        case mag > 6:
             return "#ee9c00";
-        case mag > 2:
+        case mag > 5:
             return "#eecc00";
-        case mag > 1:
+        case mag > 4:
             return "#d4ee00";
+        case mag > 3:
+            return "#98ee00";
         default:
             return "#98ee00";
     }
 }
 
+// creating a map legend to bottom left
+let legend = L.control({position: "bottomleft"});
 
-// creating a map legend to upper right corner
-let legend = L.control({position: 'topright'});
-
+// creating legend details with colors and magnitude and adding to map
+// adding a white color frame to legend
 legend.onAdd = function() {
-    let div = L.DomUtil.create("div", "info legend");
-    let mag = [0, 1, 2, 3, 4, 5];
-    let grades = ["0-1", "1-2", "2-3", "3-4", "4-5", "5+"];
-    let legendInfo = "<h4>Earthquake<br>Magnitude</h4>";
+    var div = L.DomUtil.create("div", "info legend");
+    var grades = [1.0, 3.0, 5.0, 6.0, 7.0, 8.0];
+    var labels = [];
+    var legendInfo = "<h4>Earthquake<br>Magnitude</h4>";
     
     div.innerHTML = legendInfo;
 
     // loop through each magnitude and generate a label and color the legend
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-            '<li style="background-color:' + getColor(grades[i] + 1) + '">' +
-            mag[i] + '</li>';
-    }
+            '<i style="background:' + getColor(grades[i] + 1) + '">&nbsp&nbsp&nbsp&nbsp</i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+ 
     return div;
 };
 
@@ -122,8 +131,10 @@ function createMap(earthquakes) {
         collapsed: false
     }).addTo(myMap);
 
-    // adding legend to map
+    // adding legend to the map
     legend.addTo(myMap);
+
 }
 
 console.log("logic.js loaded")
+ 
